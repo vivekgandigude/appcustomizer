@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "rasamplefooter-client-side-solution",
+    "id": "2ca5e12c-edeb-404b-a358-2d2dd3113b91",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": ""
+    },
+    "features": [
+      {
+        "title": "Application Extension - Deployment of custom action.",
+        "description": "Deploys a custom action with ClientSideComponentId association",
+        "id": "d37528a9-2dc7-44de-bd8e-bdeb23769d5b",
+        "version": "1.0.0.0",
+        "assets": {
+          "elementManifests": [
+            "elements.xml"
+          ],  
+          "elementFiles":[  
+            "schema.xml"  
+          ]  
+        }
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/rasamplefooter.sppkg"
+  }
+}

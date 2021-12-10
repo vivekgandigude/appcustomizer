@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <ClientSideComponentInstance
+        Title="Gileadsamplefooter"
+        Location="ClientSideExtension.ApplicationCustomizer"
+        ComponentId="7407e9d5-167f-42c6-b813-9a2bd1239407"
+        Properties="{&quot;testMessage&quot;:&quot;Test message&quot;}">
+    </ClientSideComponentInstance>
+</Elements>

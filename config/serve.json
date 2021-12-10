@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/core-build/serve.schema.json",
+  "port": 4328,
+  "https": true,
+  "serveConfigurations": {
+    "default": {
+      "pageUrl": "https://gileadconnect.sharepoint.com/sites/dev-dosnp/",
+      "customActions": {
+        "7407e9d5-167f-42c6-b813-9a2bd1239407": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "Bottom": "Test message"
+          }
+        }
+      }
+    },
+    "gileadsamplefooter": {
+      "pageUrl": "https://gileadconnect.sharepoint.com/sites/dev-dosnp/",
+      "customActions": {
+        "7407e9d5-167f-42c6-b813-9a2bd1239407": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "Bottom": "Test message"
+          }
+        }
+      }
+    }
+  }
+}
