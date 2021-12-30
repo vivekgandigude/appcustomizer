@@ -6,30 +6,28 @@ import Config from "../common/config";
 export class ListOperations {
   private config = new Config();
 
-  public getLatestListItem(url) {
+  // public getListItems(url) {
+  //   let web = Web(url);
+  //   return new Promise(async (resolve, reject) => {
+  //     await web.lists
+  //       .getByTitle(this.config.LISTNAME)
+  //       .items.getAll()
+  //       .then((allItems) => {
+  //         resolve(allItems);
+  //       })
+  //       .catch((err) => {
+  //         reject(err);
+  //         console.log(err);
+  //       });
+  //   });
+  // }
+  public getListData(url, listName, columns) {
     let web = Web(url);
     return new Promise(async (resolve, reject) => {
       await web.lists
-        .getByTitle(this.config.LISTNAME)
-        .items.top(1)
-        .orderBy("Modified", false)
-        .get()
-        .then((item: any[]) => {
-          resolve(item);
-        })
-        .catch((error) => {
-          console.log(error);
-          reject(error);
-        });
-    });
-  }
-
-  public getListItems(url) {
-    let web = Web(url);
-    return new Promise(async (resolve, reject) => {
-      await web.lists
-        .getByTitle(this.config.LISTNAME)
-        .items.getAll()
+        .getByTitle(listName)
+        .items.select(columns)
+        .getAll()
         .then((allItems) => {
           resolve(allItems);
         })
@@ -55,13 +53,30 @@ export class ListOperations {
         });
     });
   }
-  public getConfigListColumns(url, listname) {
-    let web = Web(url);    
+  public getConfigValue(url, key) {
+    let web = Web(url);
     return new Promise(async (resolve, reject) => {
       await web.lists
         .getByTitle(this.config.CONFIGLIST)
-        .items.filter(this.config.KEYCOLUMNNAME + " eq '" + listname + "'")
-        //items.filter(this.config.KEYCOLUMNNAME + " eq 'SalesRecords'")
+        .items.filter(this.config.KEYCOLUMNNAME + " eq 'ListColumns-" + key + "'")
+        .get()
+        .then((item) => {
+          resolve(item);
+        })
+        .catch((err) => {
+          reject(err);
+          console.log(err);
+        });
+    });
+  }
+  public getConfigListColumns(url) {
+    let web = Web(url);
+    return new Promise(async (resolve, reject) => {
+      await web.lists
+        .getByTitle(this.config.CONFIGLIST)
+        .items.filter(
+          this.config.KEYCOLUMNNAME + " ne '" + this.config.LISTNAMESKEY + "'"
+        )
         .get()
         .then((allItems) => {
           resolve(allItems);
@@ -72,28 +87,28 @@ export class ListOperations {
         });
     });
   }
-  public getLatestItems(dateValue, url) {
-    let web = Web(url);
-    return new Promise(async (resolve, reject) => {
-      await web.lists
-        .getByTitle(this.config.LISTNAME)
-        .items.filter("Modified ge datetime" + "'" + dateValue + "'")
-        .getAll()
-        .then((result) => {
-          resolve(result);
-          console.log(result);
-        })
-        .catch((err) => {
-          reject(err);
-        });
-    });
-  }
+  // public getLatestItems(dateValue, url) {
+  //   let web = Web(url);
+  //   return new Promise(async (resolve, reject) => {
+  //     await web.lists
+  //       .getByTitle(this.config.LISTNAME)
+  //       .items.filter("Modified ge datetime" + "'" + dateValue + "'")
+  //       .getAll()
+  //       .then((result) => {
+  //         resolve(result);
+  //         console.log(result);
+  //       })
+  //       .catch((err) => {
+  //         reject(err);
+  //       });
+  //   });
+  // }
 
-  public async getLastModifiedItemInfo(url) {
+  public getLastModifiedItemInfo(url, listName) {
     var web = Web(url);
     return new Promise((resolve, reject) => {
       web.lists
-        .getByTitle(this.config.LISTNAME)
+        .getByTitle(listName)
         .items.top(1)
         .orderBy("Modified", false)
         .get()

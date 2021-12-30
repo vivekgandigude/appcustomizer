@@ -12,8 +12,8 @@
           <Toolbar Type="Standard" />  
           <ViewFields>  
             <FieldRef Name="LinkTitle"></FieldRef>  
-            <FieldRef Name="Key"></FieldRef>  
-            <FieldRef Name="Value"></FieldRef>  
+            <FieldRef Name="ConfigKey"></FieldRef>  
+            <FieldRef Name="ConfigValues"></FieldRef>  
           </ViewFields>  
           <Query>  
             <OrderBy>  

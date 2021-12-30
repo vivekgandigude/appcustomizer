@@ -6,19 +6,19 @@
         ClientSideComponentId="7407e9d5-167f-42c6-b813-9a2bd1239407"
         ClientSideComponentProperties="{&quot;Bottom&quot;:&quot;Test message&quot;}">
     </CustomAction>
-     <Field ID="{060E50AC-E9C1-4D3C-B1F9-DE0BCAC300F6}"
-            Name="Key"
-            DisplayName="Key property"
+     <Field ID="{b27f9a7e-5dd6-4234-a735-927f40b08a2c}"
+            Name="ConfigKey"
+            DisplayName="ConfigKey"
             Type="Text"
             Description ="Please provide Key property"
             Required="TRUE"
             MaxLength="50"
             Group="SPFx Columns" >
     </Field>
-    <Field ID="{943E7530-5E2B-4C02-8259-CCD93A9ECB18}"
-            Name="Value"
-            DisplayName="Value"
-            Type="number"
+    <Field ID="{0fdc66c7-63d5-4b18-a312-105922d9e1b5}"
+            Name="ConfigValues"
+            DisplayName="ConfigValues"
+            Type="Text"
             Required="FALSE"
             Group="SPFx Columns">
     </Field>
@@ -27,12 +27,13 @@
             Group="SPFx Content Types" 
             Description="Sample content types from web part solution">
         <FieldRefs>
-            <FieldRef ID="{060E50AC-E9C1-4D3C-B1F9-DE0BCAC300F6}" /> 
-            <FieldRef ID="{943E7530-5E2B-4C02-8259-CCD93A9ECB18}" />
+            <FieldRef ID="{b27f9a7e-5dd6-4234-a735-927f40b08a2c}" /> 
+            <FieldRef ID="{0fdc66c7-63d5-4b18-a312-105922d9e1b5}" />
         </FieldRefs>
     </ContentType> 
 
     <ListInstance   
+            CustomSchema="schema.xml"
             FeatureId="00bfea71-de22-43b2-a848-c05709900100"  
             Title="Config"   
             Description="Configuration List"  

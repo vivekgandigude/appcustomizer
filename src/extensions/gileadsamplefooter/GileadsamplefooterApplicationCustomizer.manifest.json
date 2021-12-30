@@ -2,14 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-extension-manifest.schema.json",
 
   "id": "7407e9d5-167f-42c6-b813-9a2bd1239407",
-  "alias": "GileadsamplefooterApplicationCustomizer",
+  "alias": "DOSNP-DevSystems-Application-Footer",
   "componentType": "Extension",
-  "extensionType": "ApplicationCustomizer",
-
-  
+  "extensionType": "ApplicationCustomizer",  
   "version": "*",
-  "manifestVersion": 2,
-
-  
+  "manifestVersion": 2,  
   "requiresCustomScript": false
 }

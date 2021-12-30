@@ -9,6 +9,7 @@ import styles from "./GileadsamplefooterApplicationCustomizer.module.scss";
 import * as strings from "GileadsamplefooterApplicationCustomizerStrings";
 import Load from "../../serviceworker";
 const LOG_SOURCE: string = "GileadsamplefooterApplicationCustomizer";
+import { Web } from "@pnp/sp/presets/all";
 
 export interface IGileadsamplefooterApplicationCustomizerProperties {
   // This is an example; replace with your own property
@@ -23,7 +24,8 @@ export default class GileadsamplefooterApplicationCustomizer extends BaseApplica
   public onInit(): Promise<void> {
     this.url = this.context.pageContext.web.absoluteUrl;
     Log.info(LOG_SOURCE, `Initialized ${strings.Title}`);
-    Load(this.url);
+    Load(this.url,this.context.pageContext.web.title);
+    
     this.context.placeholderProvider.changedEvent.add(
       this,
       this._renderPlaceHoldersHeaderandFooter
